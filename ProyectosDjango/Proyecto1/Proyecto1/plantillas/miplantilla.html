@@ -1,0 +1,65 @@
+<html>
+    
+    <body>
+
+        {% include "superior/barra.html" %}
+
+        <h1>
+        Esta es mi primera plantilla
+        </h1>
+        
+        {% comment %} 
+        NO TEMAS DISEÑADOR! IGNORA ESTA PARTE 
+        {% endcomment %}
+
+        {% comment %} 
+        {% if nombre_persona == ' David' %}
+
+        <p>El curso lo hace el alumno</p>
+
+        {% else %}
+
+        <p>El curso tambien lo cursa</p>
+
+        {% endif %}
+        {% endcomment %}
+
+
+
+        {% comment %} 
+        {% if apellidos_persona == 'Escalona García' %}
+
+        <p>Mis apellidos son: </p>
+
+        {% else %}
+
+        <p>Estos no son mis apellidos</p>
+
+        {% endif %}
+        {% endcomment %}
+
+
+
+        {% filter force_escape|lower %}
+        Template 1
+        {% endfilter %}
+
+        {% autoescape on %}
+        {{body}}
+        Template 2
+        {% endautoescape %}
+
+        <p>Mi nombre es: {{nombre_persona|lower}} {{apellidos_persona}} {{momento_actual}}</p>
+        <p>Mi fecha de nacimiento es el: {{nacimiento_persona}}</p>
+        <p>Vivo en la ciudad de: {{ciudad_persona}}</p>
+        <p>La fecha de hoy es: {{ahora_persona}}</p>
+        <p>
+            <ul>
+                {% for ciclos_persona in ciclos %}
+                <li>{{ciclos_persona.capitalize}}</li>
+                {% endfor %}
+            </ul>
+        </p>
+        {% include "inferior/inferior.html" %}
+    </body>
+</html>
